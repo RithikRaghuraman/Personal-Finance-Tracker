@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personal-finance-tracker"
+version = "0.1.0"
+description = "A local, encrypted tracker for every dollar in and out of your accounts"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "sqlcipher3-wheels>=0.5",
+    "keyring>=25",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+pft = "finance_tracker.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
