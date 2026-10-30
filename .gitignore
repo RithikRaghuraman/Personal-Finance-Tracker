@@ -218,3 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Personal finance data: never commit
+budget.toml
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.csv
+
+# iCloud skips anything ending in .nosync; the virtualenv lives there
+*.nosync

@@ -1,0 +1,41 @@
+# Copy this to budget.toml and fill in your own numbers. budget.toml is gitignored.
+
+# Account id of the brokerage account that leftover money is earmarked for.
+investment_account = "brokerage"
+
+# Send a text when a category's spending reaches these percentages of its limit.
+alert_at_percent = [50, 80, 100]
+
+# How to recognize a paycheck. Matching is case-insensitive on the transaction description.
+[[paycheck]]
+description_contains = "ACME CORP PAYROLL"
+min_amount = 500.00
+# account = "checking"   # optional: only match deposits into this account
+
+# Monthly limits. When a paycheck lands, categories are filled up to their limit
+# in priority order (lowest number first). Anything left over stays unassigned.
+[[category]]
+name = "Rent"
+limit = 1400.00
+priority = 1
+alerts = false   # fixed bills always hit 100%, so skip the texts
+
+[[category]]
+name = "Groceries"
+limit = 450.00
+priority = 2
+
+[[category]]
+name = "Transportation"
+limit = 150.00
+priority = 3
+
+[[category]]
+name = "Dining"
+limit = 250.00
+priority = 4
+
+[[category]]
+name = "Fun"
+limit = 200.00
+priority = 5
